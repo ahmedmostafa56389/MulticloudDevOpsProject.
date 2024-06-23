@@ -1,0 +1,5 @@
+key_name        = "ivolve"
+ami_id          = "ami-04b70fa74e45c3917"
+instance_type   = "t3.large"
+vpc_cidr        = "10.0.0.0/16"
+alarm_action_arn = "arn:aws:sns:us-east-1:123456789012:CloudWatchNotifications"

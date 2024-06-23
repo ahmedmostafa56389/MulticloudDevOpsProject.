@@ -1,0 +1,11 @@
+---
+java_packages:
+  - openjdk-11-jdk
+
+jenkins_packages:
+  - jenkins
+
+sonarqube_packages:
+  - sonarqube
+
+# vars file for ivolve

@@ -1,0 +1,64 @@
+---
+
+- name: Update package lists
+  apt: 
+    update_cache: yes
+
+
+- name: Install Docker pre-requisites
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+    state: present
+
+
+   
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+
+- name: Add Docker repository
+  apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'
+    state: present
+
+
+   
+- name: Update package lists again
+  apt: 
+    update_cache: yes
+
+
+- name: Install Docker Engine
+  apt:
+    name: docker-ce
+    state: present
+
+
+- name: Add user to Docker group
+  become: true
+  become_user: root
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Change Docker socket file permission to 0777
+  become: true
+  become_user: root
+  file:
+    path: /var/run/docker.sock
+    mode: '0777'
+
+- name: Start and enable Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+      
+# tasks file for docker

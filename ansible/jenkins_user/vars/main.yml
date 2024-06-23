@@ -1,0 +1,7 @@
+---
+jenkins_user: 'ahmed'
+jenkins_password: 'ahmed'
+jenkins_fullname: 'Ahmed saad'
+jenkins_email: 'ahmedmostafasaad638@gmail.com'
+jenkins_group: jenkins
+# vars file for jenkins

@@ -1,0 +1,10 @@
+---
+- hosts: ivolve
+  roles:
+    - docker
+    - oc
+    - jenkins 
+    - jenkins_user    
+    - sonar
+
+

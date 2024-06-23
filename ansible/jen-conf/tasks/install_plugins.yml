@@ -1,0 +1,42 @@
+---
+- name: Install Jenkins plugins
+  jenkins_plugin:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - workflow-aggregator
+    - Credentials
+    - credentials-binding
+    - pipeline
+    - github-branch-source
+    - pipeline-build-step
+    - pipeline-stage-step
+    - pipeline-stage-view
+    - stage-view
+    - pipeline-utility-steps
+    - Basic Steps
+    - Groovy
+    - Stage Step
+    - CM Step
+    - workflow-cps-global-lib
+    - workflow-cps-global-lib
+    - shared-groovy-libraries
+    - pipeline-github-lib
+    - SCM API
+    - Git client
+    - Git
+    - GitHub API
+    - GitHub
+    - github-branch-source
+    - Docker
+    - github-branch-source
+    - sonar
+    - kubernetes
+    - kubernetes-cli
+    - openshift-client
+    - maven-plugin
+    - pipeline-maven
+    - openshift-login
+    - openshift-sync
+    - openshift-token-credentials
+  when: jenkins_initial_password is defined  

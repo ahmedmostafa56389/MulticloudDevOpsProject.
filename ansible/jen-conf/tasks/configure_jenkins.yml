@@ -1,0 +1,23 @@
+---
+- name: Retrieve Jenkins initial admin password
+  command: "cat /var/lib/jenkins/secrets/initialAdminPassword"
+  register: jenkins_initial_password
+  changed_when: false
+
+- name: Set root password for Jenkins
+  expect:
+    command: "sudo passwd root"
+    responses:
+      'New password:': '<your_root_password>\n'
+      'Retype new password:': '<your_root_password>\n'
+    echo: yes
+  become: true
+
+- name: Create root account for Jenkins
+  user:
+    name: root
+    password: "$6$wz3dJO7UgXoaOJmh$WneKDgEN7k1IbAjlKTZL1Pt7p.fSDU6wm/4eSa.gToFxfHXYJ8jhXVo5H1akTCoqXg9xIToNUjMA2LIJq/R.t.
+"
+    shell: /bin/bash
+    update_password: always
+  become: true

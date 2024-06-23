@@ -1,0 +1,6 @@
+---
+
+- include_tasks: configure_jenkins.yml
+- include_tasks: install_plugins.yml
+
+# tasks file for jen-conf

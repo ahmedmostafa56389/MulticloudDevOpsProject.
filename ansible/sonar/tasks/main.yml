@@ -1,0 +1,33 @@
+- name: Copy compose file from local machine to managed host
+  copy:
+    src: /home/ahmed/project/ansible/sonar/compose/compose.yaml
+    dest: /home/ubuntu/compose.yaml
+  
+
+- name: Set sysctl and ulimit settings for ElasticSearch
+  shell: |
+    sysctl -w vm.max_map_count=524288
+    sysctl -w fs.file-max=131072
+    ulimit -n 131072
+    ulimit -u 8192
+  args:
+    executable: /bin/bash
+  become: true
+
+- name: Ensure compose.yml file exists
+  ansible.builtin.stat:
+    path: /home/ubuntu/compose.yml  # Replace with the actual path to your compose.yml file
+  register: compose_file_stat
+  check_mode: no
+
+- name: Change permissions of compose.yml file
+  ansible.builtin.file:
+    path: /home/ubuntu/compose.yml  # Replace with the actual path to your compose.yml file
+    mode: "0777"  # Specify the desired permissions here, e.g., 0644 for rw-r--r--
+    remote_src: yes
+  when: compose_file_stat.stat.exists
+  become: true    
+
+- name: Run Docker Compose
+  command: docker compose -f /home/ubuntu/compose.yaml up -d
+  become: true
