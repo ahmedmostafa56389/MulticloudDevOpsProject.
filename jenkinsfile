@@ -29,8 +29,8 @@ pipeline {
 
         stage('Run sonarQube') {
             steps {
-                script {               	
-                    echo" sonarQube done"
+                script { 
+                    sonar-qube()
             	}
     	    }
         }
