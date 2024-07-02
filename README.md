@@ -322,7 +322,7 @@ Terraform output files define values that are displayed post-deployment, like IP
     and also get another information such as : - subnets IPs
                                                - VPC ID
 
-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__
+__-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
 # Socend stage 
 ## Ansible
@@ -362,44 +362,50 @@ Tasks:
 ```
 vim ~/project/ansible2/docker/tasks/main.yml
 ```
-1- Update apt packages
-2- Gither destribuation information
-3- Install all  Docker Prerequsites 
-4- Add Docker GPG Key
-5- Add Docker repository
-6- Install Docker
-7- Start and Enable Docker service
-8- Change the permation for /var/run/docker.sock
+1. Update apt packages
+2. Gither destribuation information
+3. Install all  Docker Prerequsites 
+4. Add Docker GPG Key
+5. Add Docker repository
+6. Install Docker
+7. Start and Enable Docker service
+8. Change the permation for /var/run/docker.sock
+
 #####################################################
+
 **to install jenkins and all it's dependencies**
 Tsaks:
 ```
 vim ~/project/ansible2/jenkins/tasks/main.yml
 ```
-1- Pull jenkins image
-2- Create jenkins container
-3- Fetch jenkins Password
-4- Install Java 17 for jenkins conatainer
-5- Install Docker Cli inside jenkins conatiner
+1. Pull jenkins image
+2. Create jenkins container
+3. Fetch jenkins Password
+4. Install Java 17 for jenkins conatainer
+5. Install Docker Cli inside jenkins conatiner
+
 ########################################################
+
 **to install git inside jenkins conatiner**
 Tasks:
 ```
 vim ~/project/ansible2/git/tasks/main.yml
 ```
-1- Update apt Cash
-2- Install Git
+1. Update apt Cash
+2. Install Git
 ##########################################################
 **to install OpenShift inside jenkins conatiner**
 Tasks:
 ```
 vim ~/project/ansible2/openshift/tasks/main.yml
 ```
-1- Install oc cli on the localhost
-2- Copy oc cli to jenkins container
-3- Extract oc cli tallbar inside jenkins container
-4- Ensure that oc cli is executable inside jenkins container
+1. Install oc cli on the localhost
+2. Copy oc cli to jenkins container
+3. Extract oc cli tallbar inside jenkins container
+4. Ensure that oc cli is executable inside jenkins container
+
 ###########################################################
+
 **to itiate sonarqube server**
 - What is sonarQube ?
 
@@ -428,11 +434,12 @@ Tasks:
 ```
 vim ~/project/ansible2/sonaqube/tasks/main.yml
 ```
-1- Create Docker volumes for sonarqube
-2- Pull PostgreSQL image
-3- Run PostgreSQL container
-4- Pull SonarQube image
-5- Run SonarQube container
+1. Create Docker volumes for sonarqube
+2. Pull PostgreSQL image
+3. Run PostgreSQL container
+4. Pull SonarQube image
+5. Run SonarQube container
+
 ##############################################
 
 ##### 2- get the SSH Key that attached to EC2
@@ -454,7 +461,7 @@ ansible-playbook -i inventory playbook
 ![alt text](ansible(2)-3.png)
 
 
-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__
+__-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
 ### Second way "Install on local machine"
 
@@ -476,6 +483,7 @@ Tasks:
 vim ~/project/ansible/docker/tasks/main.yml
 ```
 The Same tasks for the first way
+
 ##############################################
 
 **install jenkins on localhost**
@@ -483,63 +491,70 @@ Tasks:
 ```
 vim ~/project/ansible/jenkins/tasks/main.yml
 ```
-1- Install Java 
-2- install openJDK 17
-3- Download jenkins repository key
-4- Add jenkins to repository
-5- Install jenkins 
-6- start jenkins service
+1. Install Java 
+2. install openJDK 17
+3. Download jenkins repository key
+4. Add jenkins to repository
+5. Install jenkins 
+6. start jenkins service
+
 #############################################
+
 **Configure jenkins and create user**
 Tasks:
 ```
 vim ~/project/ansible/jenkins_user/tasks/main.yml
 ```
-1- Add jenkins Password
-2- Create CRUMB authentication request
-3- Add jenkins administration account
-4- Install jenkins plugns
-5- DAEMON reload 
-6- restart jenkins service
+1. Add jenkins Password
+2. Create CRUMB authentication request
+3. Add jenkins administration account
+4. Install jenkins plugns
+5. DAEMON reload 
+6. restart jenkins service
+
 ############################################
+
 **install OpenShift CLI**
 Tasks:
 ```
 vim ~/project/ansible/oc/tasks/main.yml
 ```
-1- Install oc cli
-2- Extract OpenShift CLI
-3- verify installation
+1. Install oc cli
+2. Extract OpenShift CLI
+3. verify installation
+
 ###########################################
+
 **install and configure SonarQube**
 Tasks:
 ```
 vim ~/project/ansible/sonarqube/tasks/main.yml
 ```
 Create Docker compuse to run sonarqube
-1- Copy docker compuse to the managed host 
-2- Set sysctl and ulimit settings for ElasticSearch
-3- Ensure compose.yml file exists
-4- Change permissions of compose.yml file 
-5- Run Docker Compose
+1. Copy docker compuse to the managed host 
+2. Set sysctl and ulimit settings for ElasticSearch
+3. Ensure compose.yml file exists
+4. Change permissions of compose.yml file 
+5. Run Docker Compose
 ```sh
 docker compose -f /home/ubuntu/compose.yaml up -d
 ```
 ###########################################
+
 ##### 2- get the SSH Key that attached to EC2
 - get the SSH Key for EC2 to enable ansible to connect to EC2 Via SSH
 
-  ![Alt text](screenshots/SSH-terraform.png)
-  ![Alt text](screenshots/SSH-ansible.png)
 ###########################################
+
 ##### 3- Run Ansible playbook
+
 ![alt text](ansible(1)-1.png)
 ![alt text](ansible(1)-2.png)
 ![alt text](ansible(1)-3.png)
 ![alt text](ansible(1)-4.png)
 ![alt text](ansible(1)-5.png) 
 
-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__-__
+__-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
 # Third Stage
 ## OpenShift
