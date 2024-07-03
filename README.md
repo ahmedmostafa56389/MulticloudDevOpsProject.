@@ -12,7 +12,7 @@ In this project i use many tools such as: - Docker for contranitaziton and use s
 
 ## Project Diagram
 
-<img src="https://github.com/saeedkouta/MultiCloudDevOpsProject/assets/167209058/9b478343-8a6c-4c39-8eb1-d5c90dd8db17.svg" >
+<img src="screenshots/Ahmed mostafa.svg" >
 
 ## Project Structure
 ```bash
