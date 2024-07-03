@@ -637,7 +637,7 @@ Certainly! A shared library in Jenkins allows you to define and maintain a set o
 
 ![alt text](screenshots/shared-lib.png)
 
-I create somee Groovy scripts:
+- create some Groovy scripts:
 1. test the code 
 2. for run sonarqube server and test the code quality
 3. build docker image
