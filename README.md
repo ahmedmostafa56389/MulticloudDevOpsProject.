@@ -272,7 +272,38 @@ Terraform output files define values that are displayed post-deployment, like IP
     and also get another information such as : - subnets IPs
                                                - VPC ID
 
+
+**The result of terraform from AWS management console**
+
+1. VPC with IP "10.0.0.0/16"
+![alt text](VPC.png)
+
+2. supnets 'public , private'
+![alt text](subnets.png)
+
+3. Route tables 
+![alt text](<route tables.png>)
+
+4. Internet geteway 
+![alt text](<internet gateway.png>)
+
+5. EC2
+![alt text](EC2.png)
+
+6. CloudWatch
+![alt text](cloudwatch.png)
+
+7. Alarms
+![alt text](alarms.png)
+
+8. SNS & SNS subscribtion
+
+![alt text](sns.png)
+![alt text](SNS-subscription.png) 
+
+
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
+
 
 # Socend stage 
 ## Ansible
