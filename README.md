@@ -276,30 +276,32 @@ Terraform output files define values that are displayed post-deployment, like IP
 **The result of terraform from AWS management console**
 
 1. VPC with IP "10.0.0.0/16"
-![alt text](VPC.png)
+![Alt text](screenshots/VPC.png)
 
 2. supnets 'public , private'
-![alt text](subnets.png)
+![alt text](screenshots/subnets.png)
 
 3. Route tables 
-![alt text](<route tables.png>)
+![Alt text](<screenshots/route tables.png>)
 
 4. Internet geteway 
-![alt text](<internet gateway.png>)
+![alt text](<screenshots/internet gateway.png>)
 
 5. EC2
-![alt text](EC2.png)
+![alt text](screenshots/EC2.png)
 
 6. CloudWatch
-![alt text](cloudwatch.png)
+![alt text](screenshots/cloudwatch.png)
 
 7. Alarms
-![alt text](alarms.png)
+![alt text](screenshots/alarms.png)
 
 8. SNS & SNS subscribtion
 
-![alt text](sns.png)
-![alt text](SNS-subscription.png) 
+![alt text](screenshots/sns.png)
+
+
+![alt text](screenshots/SNS-subscription.png)
 
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
@@ -431,7 +433,7 @@ vim ~/project/ansible2/sonaqube/tasks/main.yml
 
 - and note to call the SSH key path on "ansible.cfg" file 
 
-![alt text](<Screenshot (98).png>)
+![alt text](screenshots/ansible-cfg.png)
 
 ##### 3- Run ansible playbook
 
@@ -439,7 +441,7 @@ vim ~/project/ansible2/sonaqube/tasks/main.yml
 ```sh
 ansible-playbook -i inventory playbook
 ```
-![alt text](ansible(2)-3.png)
+![alt text](screenshots/ansible(2)-3.png)
 
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
@@ -529,11 +531,11 @@ docker compose -f /home/ubuntu/compose.yaml up -d
 
 ##### 3- Run Ansible playbook
 
-![alt text](ansible(1)-1.png)
-![alt text](ansible(1)-2.png)
-![alt text](ansible(1)-3.png)
-![alt text](ansible(1)-4.png)
-![alt text](ansible(1)-5.png) 
+![alt text](screenshots/ansible(1)-1.png)
+![alt text](screenshots/ansible(1)-2.png)
+![alt text](screenshots/ansible(1)-3.png)
+![alt text](screenshots/ansible(1)-4.png)
+![alt text](screenshots/ansible(1)-5.png) 
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
@@ -576,7 +578,7 @@ And Then Expose this deployment and get the service  with port 8080
 
 Then create a route to make the application accessable from the internet
 
-![alt text](route-yaml.png)
+![alt text](screenshots/route-yaml.png)
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
@@ -591,15 +593,15 @@ AS we show before that in ansible 1 we create the SonarQube as a Docker compuse
 or create it a Container
 
 in these two case we access SonarQube VIA port 9000
-![alt text](sonarQube-1.png)
+![alt text](screenshots/sonarQube-1.png)
 
 Then Create a local project
-![alt text](sonarQube-2.png)
+![alt text](screenshots/sonarQube-2.png)
 
-![alt text](sonarQube-3.png)
+![alt text](screenshots/sonarQube-3.png)
 
 And then create a token for this sonar project from administration security
-![alt text](sonarQube-6.png)
+![alt text](screenshots/sonarQube-6.png)
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
@@ -623,9 +625,9 @@ git push -u origin dev
 dev Branch: Used for development work.
 
 
-![alt text](git.png) 
-![alt text](git-3.png)
-![alt text](git-2.png)
+![alt text](screenshots/git.png) 
+![alt text](screenshots/git-3.png)
+![alt text](screenshots/git-2.png)
 
 
 ##### 3- Shared library 
@@ -633,7 +635,7 @@ Certainly! A shared library in Jenkins allows you to define and maintain a set o
 
 **Resources: https://www.jenkins.io/doc/**
 
-![alt text](shared-lib.png)
+![alt text](screenshots/shared-lib.png)
 
 I create somee Groovy scripts:
 1. test the code 
@@ -675,11 +677,11 @@ Then we start to enter our credintials that need to use on our project
 
 **Github credintials**
 - using mail and password
-![alt text](github-cred.png)
+![alt text](screenshots/github-cred.png)
 
 **DockerHub credintials**
 - Also using mail and password
-![alt text](dockerhub-cred.png)
+![alt text](screenshots/dockerhub-cred.png)
 
 **Openshift credintials**
 - We must create a service account on our openshift cluster to use it in deploying process and give it the admin roles
@@ -696,44 +698,44 @@ oc sa get-token ahmed-project
 ```
 Then cope this token and create a 'secret text' credintial in jenkins
 
-![alt text](OC-cred.png)
+![alt text](screenshots/OC-cred.png)
 
 ##### 2. Define sherd library repository 
 From System of jenkins define Trused Shared library with the same name in jenkins file
 
-![alt text](sharedlibrary-1.png)
+![alt text](screenshots/sharedlibrary-1.png)
 
 Then put the link of shared library repository and finish the configuratio
 
-![alt text](sharedlibrary-2.png)
+![alt text](screenshots/sharedlibrary-2.png)
 
 ##### 3. Define the sonarqube tool and plugin
 
 From Tools scroll down to sonarqube scanner installation and configure it
 
-![alt text](sonarqube-server.png)
+![alt text](screenshots/sonarqube-server.png)
 
 Back and From Plugins choose available then search for sonaqube and install it
 
-![alt text](sonar-plugin.png)
+![alt text](screenshots/sonar-plugin.png)
 
 And From System scroll down to sonarqube servers and configure one with sonarqube name , url and credintials
 
-![alt text](sonarqube-server-1.png)
+![alt text](screenshots/sonarqube-server.png)
 
 ##### 4. Cresate pipeline 
 
 Create pipeline with name 'MultiCloudDevOpsProject'
 
-![alt text](<pipleline create.png>)
+![alt text](<screenshots/pipleline create.png>)
 
-![alt text](<pipeline create-2.png>)
+![alt text](<screenshots/pipeline create-2.png>)
 
 Then Run the Pipleline 
 
-![alt text](<pipeline run-1.png>)
-![alt text](<pipeline run-2.png>)
-![alt text](pipeline-stages.png)
+![alt text](<screenshots/pipeline run-1.png>)
+![alt text](<screenshots/pipeline run-2.png>)
+![alt text](screenshots/pipeline-stages.png)
 
 __-__ __-__ __-__ __-__ __-__ __-__ __-__ __-__
 
@@ -744,21 +746,21 @@ we can see these:
 
 - our Deployment 
 
-![alt text](deployment.png)
+![alt text](screenshots/deployment.png)
 
 - Pods 
 
-![alt text](pods.png)
+![alt text](screenshots/pods.png)
 
 - service
 
-![alt text](service.png)
+![alt text](screenshots/service.png)
 
 - Route
 
-![alt text](routes.png)
+![alt text](screenshots/routes.png)
 
 Finally Our Application
 
-![alt text](app-run.png)
+![alt text](screenshots/app-run.png)
 
